@@ -1,0 +1,2 @@
+class VendorsweetsController < ApplicationController
+end

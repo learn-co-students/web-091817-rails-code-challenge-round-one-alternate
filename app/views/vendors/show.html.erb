@@ -1,0 +1,31 @@
+<h1>Vendor Show page</h1>
+<%= @vendor.name %>
+<br>
+
+<% @vendor.sweets.each do |sweet| %>
+<%= sweet.name %>
+<% end %>
+<br>
+MAKE A FORM HERE for the associations! (I tried to add the coloumn :comment to the vendorsweet table and something broke will come back to  )
+
+
+<%= form_for @vendor do |f| %>
+
+
+<%= f.fields_for :vendorsweets do |j|  %>
+<%= j.collection_select :sweets, Sweet.all, :id, :name %>
+<% end %>
+<%= f.submit "Add comment & Sweet" %>
+<% end %>
+
+
+
+
+
+<%# @vendor.sweets << :sweets  -%>
+
+<%# <% sweet_array = Sweet.all.map { |sweet| [sweet.name, sweet.id] } %>
+<%# <%= f.options_for_select(sweet_array)%>
+
+
+Here, I was in the middle of my tested form but then I realized I had to add the comment field to the
